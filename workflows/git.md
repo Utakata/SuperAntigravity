@@ -4,46 +4,46 @@ description: name: git
 ---
 # Git
 
-Git operations with intelligent commit messages.
+スマートなコミットメッセージによる Git 操作を行います。
 
-## Smart Commit Protocol
-1. Run `git status` — understand what changed
-2. Run `git diff` — review actual changes
-3. Stage specific files (never `git add .` blindly)
-4. Generate commit message following Conventional Commits:
-   - `feat:` new feature
-   - `fix:` bug fix
-   - `refactor:` code change without behavior change
-   - `test:` test additions/changes
-   - `docs:` documentation only
-   - `chore:` maintenance tasks
+## スマートコミットプロトコル (Smart Commit Protocol)
+1. `git status` を実行し、何が変更されたかを理解します
+2. `git diff` を実行し、実際の変更をレビューします
+3. 特定のファイルをステージングします (決して盲目的に `git add .` しないこと)
+4. Conventional Commits に従ってコミットメッセージを生成します:
+   - `feat:` 新機能
+   - `fix:` バグ修正
+   - `refactor:` 動作を変更しないコードの変更
+   - `test:` テストの追加/変更
+   - `docs:` ドキュメントのみ
+   - `chore:` メンテナンスタスク
 
-## Commit Message Format
+## コミットメッセージのフォーマット (Commit Message Format)
 
 ```
-type(scope): short description
+種類(スコープ): 短い説明
 
-Optional longer explanation of WHY, not what.
+（オプション）「何」をしたかではなく、「なぜ」したのかに関する長い説明。
 ```
 
-## Safety Rules
-- NEVER force push to main/master
-- NEVER commit secrets, .env files, or credentials
-- NEVER skip pre-commit hooks (--no-verify)
-- NEVER amend published commits
-- Always investigate before using --force
+## 安全ルール (Safety Rules)
+- main/master ブランチに強制プッシュ (force push) は**絶対に行わない**でください
+- シークレット、.env ファイル、または認証情報をコミットしては**いけません**
+- プレコミットフックをスキップ (--no-verify) しては**いけません**
+- 公開済みのコミットを修正 (amend) しては**いけません**
+- --force を使用する前に、常に調査を行ってください
 
-## Branch Naming
-- Features: `feat/description`
-- Fixes: `fix/description`
-- Experiments: `experiment/description`
+## ブランチの命名 (Branch Naming)
+- 機能: `feat/説明`
+- 修正: `fix/説明`
+- 実験: `experiment/説明`
 
-## Common Operations
+## よく使う操作 (Common Operations)
 ```
-git status                    # What changed
-git diff                      # Review changes
-git add path/to/file          # Stage specific files
-git commit -m "feat: add X"   # Commit with message
-git log --oneline -10         # Recent history
-git stash                     # Save work temporarily
+git status                    # 何が変更されたか確認
+git diff                      # 変更内容をレビュー
+git add path/to/file          # 特定のファイルをステージング
+git commit -m "feat: add X"   # メッセージを付けてコミット
+git log --oneline -10         # 最近の履歴を確認
+git stash                     # 作業を一時的に保存
 ```

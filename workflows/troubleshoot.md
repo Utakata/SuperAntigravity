@@ -1,45 +1,45 @@
 ---
 name: troubleshoot
-description: Orchestrates systematic debugging sessions.
+description: 体系的なデバッグセッションを調整します。
 ---
-# /troubleshoot
+# /troubleshoot (トラブルシューティング)
 
-**What this does:** Orchestrates systematic debugging sessions.
+**このコマンドの機能:** 体系的なデバッグセッションを調整します。
 
-Load systematic-debugging skill — it owns the 4-phase process.
+`systematic-debugging` スキルをロードしてください — このスキルが4段階のプロセスを管理します。
 
-## Orchestration (what this workflow adds)
+## オーケストレーション (このワークフローが追加するもの)
 
-**Before loading the skill:**
-1. Confirm the issue is reproducible: "Can you trigger this consistently? Yes/No?"
-   If No — flaky issue protocol:
-   Phase 1 priority changes: (1) check timing dependencies and async race conditions; (2) check environment-specific state (caches, file locks, network timeouts); (3) document reproduction rate (e.g., "fails 3 of 10 runs"). Do not attempt a fix until you can reproduce failure at least once on demand or can explain why consistent reproduction is impossible.
-2. Gather: exact error message, stack trace, and "when did this last work?"
+**スキルをロードする前に:**
+1. 問題が再現可能であることを確認します: 「これを一貫してトリガーできますか？ はい/いいえ？」
+   「いいえ」の場合 — 不安定な問題のプロトコル (flaky issue protocol):
+   フェーズ1の優先事項の変更: (1) タイミング依存性と非同期の競合状態 (race conditions) を確認する; (2) 環境固有の状態（キャッシュ、ファイルロック、ネットワークタイムアウト）を確認する; (3) 再現率を文書化する（例: 「10回の実行中3回失敗する」）。少なくとも1回オンデマンドで失敗を再現できるか、一貫した再現が不可能である理由を説明できるようになるまでは、修正を試みないでください。
+2. 以下を収集します: 正確なエラーメッセージ、スタックトレース、および「最後に正常に動作したのはいつか？」
 
-**Phase names match the systematic-debugging skill exactly:**
-- Phase 1: Root Cause Investigation
-- Phase 2: Pattern Analysis
-- Phase 3: Hypothesis and Testing
-- Phase 4: Implementation
+**フェーズ名は `systematic-debugging` スキルと完全に一致させます:**
+- フェーズ 1: 根本原因の調査 (Root Cause Investigation)
+- フェーズ 2: パターンの分析 (Pattern Analysis)
+- フェーズ 3: 仮説とテスト (Hypothesis and Testing)
+- フェーズ 4: 実装 (Implementation)
 
-Use these names when reporting status. Do not rename phases.
+ステータスを報告する際は、これらの名前を使用してください。フェーズの名前を変更してはいけません。
 
-**After Phase 4:**
-- Load verification-before-completion skill before declaring fixed
-- Write a regression test and commit both the fix and the test together:
-  - Commit message: `fix: [bug description]` + `test: [bug description] no longer occurs` (two-line message or two separate commits)
-  - Test function name: follows project's existing naming convention for regression tests
+**フェーズ 4 の後:**
+- 修正されたと宣言する前に、`verification-before-completion` スキルをロードします
+- リグレッションテストを作成し、修正とテストを一緒にコミットします:
+  - コミットメッセージ: `fix: [バグの説明]` + `test: [バグの説明] が発生しなくなった` (2行のメッセージまたは2つの別々のコミット)
+  - テスト関数名: リグレッションテストに関するプロジェクトの既存の命名規則に従います
 
-## Escalation Path
+## エスカレーションパス (Escalation Path)
 
-Note: If the systematic-debugging skill's 3-fix architectural escalation triggers before Phase 4 completes, follow the skill's escalation path first. The path below applies only when the full 4-phase process completes without resolution.
+注意: フェーズ4が完了する前に、`systematic-debugging` スキルの「3回の修正によるアーキテクチャ上のエスカレーション」がトリガーされた場合は、まずそちらのエスカレーションパスに従ってください。以下のパスは、4段階のプロセスすべてが完了しても解決しない場合にのみ適用されます。
 
-If all 4 phases complete and issue is unresolved:
-1. Document in BLOCKERS.md: symptom, what was tried, what was ruled out
-2. Load deep-research skill to look for similar issues in official docs/issues
-3. If still unresolved: present findings to user with specific question ("I've ruled out X and Y — is there something about the deployment environment I'm missing?")
+4つのフェーズすべてが完了しても問題が未解決の場合:
+1. `BLOCKERS.md` に以下を文書化します: 症状、試したこと、除外された原因
+2. `deep-research` スキルをロードして、公式ドキュメント/Issue で類似の問題を探します
+3. それでも未解決の場合: 具体的な質問を添えて発見事項をユーザーに提示します (「XとYは除外しました — デプロイメント環境に関して私が把握していないことはありますか？」)
 
-## What NOT to Do
-- Do NOT retry the same failing command without a new hypothesis
-- Do NOT declare fixed without running verification-before-completion
-- Do NOT guess and check — form hypothesis first
+## やってはいけないこと (What NOT to Do)
+- 新しい仮説なしに、同じ失敗するコマンドを再試行**しない**こと
+- `verification-before-completion` を実行せずに修正済みと宣言**しない**こと
+- 当てずっぽうで確認**しない**こと — まず仮説を立てること

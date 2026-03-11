@@ -2,34 +2,34 @@
 name: document
 description: name: document
 ---
-# Document
+# Document (ドキュメント作成)
 
-Generate focused documentation for components, functions, APIs, and features.
+コンポーネント、関数、API、および機能に焦点を当てたドキュメントを生成します。
 
-## Documentation Types
+## ドキュメントの種類 (Documentation Types)
 
-### Inline (docstrings/JSDoc)
-For: functions, classes, complex logic
-Format: language-appropriate (JSDoc for JS/TS, docstrings for Python)
-Include: what it does, parameters, return value, example
+### インライン (docstrings/JSDoc)
+**対象:** 関数、クラス、複雑なロジック
+**フォーマット:** 言語に適切なもの (JS/TS では JSDoc、Python では docstrings)
+**内容:** 機能の説明、パラメータ、戻り値、使用例
 
-### API Reference
-For: external-facing APIs
-Include: endpoints, request/response format, auth, error codes, examples
+### API リファレンス (API Reference)
+**対象:** 外部向け API
+**内容:** エンドポイント、リクエスト/レスポンス形式、認証、エラーコード、使用例
 
-### User Guide
-For: features users interact with
-Include: what it does, how to use it, common patterns, gotchas
+### ユーザーガイド (User Guide)
+**対象:** ユーザーが操作する機能
+**内容:** 機能の説明、使用方法、一般的なパターン、注意点 (gotchas)
 
-### Architecture Docs
-For: system components and their relationships
-Include: purpose, dependencies, data flow, deployment
+### アーキテクチャドキュメント (Architecture Docs)
+**対象:** システムコンポーネントとその関係性
+**内容:** 目的、依存関係、データフロー、デプロイメント
 
-## Rules
-- Document the WHY, not the WHAT (code shows what, comments explain why)
-- Don't document obvious things
-- Keep docs close to the code they describe
-- Update docs when code changes — stale docs are worse than no docs
+## ルール (Rules)
+- **「何をしているか(WHAT)」ではなく「なぜそうしているか(WHY)」を文書化する** (コードは「何」を示し、コメントは「なぜ」を説明します)
+- 明白なことを文書化しないこと
+- ドキュメントは、それが説明するコードの近くに配置すること
+- コードが変更されたらドキュメントを更新すること — 古いドキュメントはドキュメントがないことより悪影響です
 
-## Usage
-`/document [target] [--type inline|api|guide|architecture]`
+## 使用方法 (Usage)
+`/document [対象] [--type inline|api|guide|architecture]`

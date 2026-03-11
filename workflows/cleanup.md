@@ -2,32 +2,32 @@
 name: cleanup
 description: name: cleanup
 ---
-# Cleanup
+# Cleanup (クリーンアップ)
 
-Remove dead code, unused imports, and optimize project structure.
+デッドコードや未使用のインポートを削除し、プロジェクト構造を最適化します。
 
-## What to Clean
+## クリーンアップの対象 (What to Clean)
 
-### Safe to Auto-Remove
-- Unused imports with zero references
-- Dead code with no call sites
-- Empty blocks and no-op functions
-- Commented-out code that's clearly obsolete
+### 自動的に削除しても安全なもの (Safe to Auto-Remove)
+- 参照されていない未使用のインポート
+- 呼び出し箇所がないデッドコード
+- 空のブロックや何もしない関数
+- 明らかに不要になったコメントアウトされたコード
 
-### Requires User Approval First
-- Code with indirect references
-- Exports that might be used externally
-- Test fixtures and utilities
-- Configuration values (might be used by external tooling)
+### 事前にユーザーの承認が必要なもの (Requires User Approval First)
+- 間接的な参照を持つコード
+- 外部から使用されている可能性のあるエクスポート
+- テスト用のフィクスチャやユーティリティ
+- 設定値（外部ツールから使用されている可能性があります）
 
-## Process
-1. Identify cleanup candidates with analysis
-2. For auto-safe items: remove and verify tests still pass
-3. For approval-required items: show user the code and ask
-4. Run tests after every batch of changes
-5. Commit in small batches with descriptive messages
+## プロセス (Process)
+1. 分析によってクリーンアップの候補を特定します
+2. 自動削除が安全な項目について: 削除し、テストが引き続き通ることを確認します
+3. 承認が必要な項目について: ユーザーにコードを提示して尋ねます
+4. 変更のバッチごとにテストを実行します
+5. 説明的なメッセージを付けて、小さなバッチでコミットします
 
-## Safety Rule
-If in doubt, ask. Removing wrong code is worse than leaving technical debt.
+## 安全ルール (Safety Rule)
+疑わしい場合は、必ず尋ねてください。間違ったコードを削除することは、技術的負債を残すことよりも悪影響を及ぼします。
 
-Load verification-before-completion before declaring cleanup done.
+クリーンアップが完了したと宣言する前に、`verification-before-completion` スキルをロードしてください。

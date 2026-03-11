@@ -1,77 +1,77 @@
 ---
 name: implement
-description: Orchestrates feature implementation through TDD with review gates.
+description: レビューゲートを設けた TDD (テスト駆動開発) による機能の実装を調整します。
 ---
-# /implement
+# /implement (実装)
 
-**What this does:** Orchestrates feature implementation through TDD with review gates.
+**このコマンドの機能:** レビューゲートを設けた TDD による機能の実装を調整します。
 
-**Prerequisites:**
-- Design approved (docs/plans/*-design.md exists) — if not, run /brainstorm first
-- Implementation plan exists (docs/plans/*-plan.md) — if not, run /plan first
-- On a feature branch (not main/master)
-- **Fast Mode** active in Antigravity settings
+**前提条件:**
+- 設計が承認されていること (`docs/plans/*-design.md` が存在すること) — ない場合は、まず `/brainstorm` を実行してください
+- 実装計画が存在すること (`docs/plans/*-plan.md`) — ない場合は、まず `/plan` を実行してください
+- フィーチャーブランチ上にいること (main/master ではない)
+- Antigravity の設定で **高速モード (Fast Mode)** がアクティブになっていること
 
-**Skill dependencies:** This workflow uses: confidence-check, test-driven-development, systematic-debugging, requesting-code-review, verification-before-completion, finishing-a-development-branch (all in skills/).
+**依存するスキル:** このワークフローは以下のスキルを使用します: `confidence-check`, `test-driven-development`, `systematic-debugging`, `requesting-code-review`, `verification-before-completion`, `finishing-a-development-branch` (すべて `skills/` にあります)。
 
-## Session State
+## セッション状態 (Session State)
 
-At the start of each task, output:
+各タスクの開始時に、以下を出力します:
 ```
-Session: /implement
-Plan: [path to plan file]
-Task: [N of M] — [task name]
-Confidence: [score]/30
-Status: [confidence-check | RED phase | GREEN phase | review | complete]
-```
-
-## Step 0: Load the Plan
-
-Read the plan file at docs/plans/*-plan.md before running the confidence-check.
-A confidence-check that doesn't reference the plan's specific tasks and file paths is invalid.
-
-## Orchestration Flow
-
-```
-confidence-check skill → score ≥ 27 required to proceed
-         ↓
-test-driven-development skill → RED phase (write failing test)
-         ↓
-minimal implementation
-         ↓
-test-driven-development skill → GREEN phase (make it pass)
-         ↓
-commit
-         ↓
-requesting-code-review skill → review against plan
-         ↓
-next task (repeat)
-         ↓
-verification-before-completion skill → final check
-         ↓
-finishing-a-development-branch skill → merge/PR decision
+セッション: /implement
+計画: [計画ファイルへのパス]
+タスク: [N / M] — [タスク名]
+確信度 (Confidence): [スコア]/30
+ステータス: [確信度チェック | RED フェーズ | GREEN フェーズ | レビュー | 完了]
 ```
 
-## Session Announcement
+## ステップ 0: 計画の読み込み (Load the Plan)
 
-At start: "Starting /implement for [task/feature]. Loading confidence-check..."
+`confidence-check` を実行する前に、`docs/plans/*-plan.md` にある計画ファイルを読み込みます。
+計画の特定のタスクやファイルパスを参照しない `confidence-check` は無効です。
 
-## On Confidence Below 27
+## オーケストレーションフロー (Orchestration Flow)
 
-Announce: "Confidence check failed: [dimension] scored [X].
-Gap: [specific unknown].
-Action: [reading files | running research | asking user]"
-Do not start implementing until score reaches 27+.
+```
+confidence-check スキル → 進めるにはスコアが27以上必要
+         ↓
+test-driven-development スキル → RED フェーズ (失敗するテストを書く)
+         ↓
+最小限の実装
+         ↓
+test-driven-development スキル → GREEN フェーズ (テストをパスさせる)
+         ↓
+コミット
+         ↓
+requesting-code-review スキル → 計画に対するレビュー
+         ↓
+次のタスクへ (繰り返し)
+         ↓
+verification-before-completion スキル → 最終確認
+         ↓
+finishing-a-development-branch スキル → マージ/PR の決定
+```
 
-If gap-filling does not raise confidence to 27+ within 2 iterations: announce the specific remaining gap to the user and wait for input. Do not begin implementation without reaching 27+.
+## セッションの宣言 (Session Announcement)
 
-## On Test Failure After Implementation
+開始時: 「[タスク/機能] のための `/implement` を開始します。確信度チェック (confidence-check) をロードしています...」
 
-Load systematic-debugging skill. Do NOT retry without diagnosis.
+## 確信度が27未満の場合 (On Confidence Below 27)
 
-## Commit Cadence
+次のように宣言します: 「確信度チェックに失敗しました: [項目] のスコアが [X] です。
+不足している情報 (Gap): [特定の未知事項]。
+アクション: [ファイルを読み込む | 調査を実行する | ユーザーに質問する]」
+スコアが27以上になるまで、実装を開始しないでください。
 
-Commit after every GREEN test. Message format: `test: [what behavior is now tested]`
-Never accumulate more than one GREEN test before committing.
+不足情報を補っても、2回の反復内に確信度が27以上にならない場合は、残っている具体的な不足情報をユーザーに伝え、入力を待ちます。27以上に達することなく実装を開始してはいけません。
 
-If a commit fails: stop immediately. Do not run another test. Diagnose the commit failure first (load systematic-debugging if needed). Do not accumulate GREEN tests while a commit is pending.
+## 実装後のテスト失敗時 (On Test Failure After Implementation)
+
+`systematic-debugging` スキルをロードします。診断なしに再試行**しないでください**。
+
+## コミットのタイミング (Commit Cadence)
+
+GREEN テストが成功するたびにコミットします。メッセージフォーマット: `test: [現在テストされている動作]`
+コミットする前に、複数の GREEN テストをため込まないでください。
+
+コミットが失敗した場合: 直ちに停止します。別のテストを実行してはいけません。まずコミット失敗の診断を行ってください（必要に応じて `systematic-debugging` をロードします）。コミットが保留になっている間に GREEN テストをため込まないでください。

@@ -2,48 +2,48 @@
 name: test
 description: name: test
 ---
-# Test
+# Test (テスト)
 
-Run tests with coverage analysis.
+カバレッジ分析を伴うテストを実行します。
 
-Load test-driven-development skill for the full RED-GREEN-REFACTOR process.
+完全な RED-GREEN-REFACTOR プロセスについては `test-driven-development` スキルをロードしてください。
 
-## Running Tests
-1. Run full test suite first to establish baseline
-2. Report: total tests, passed, failed, skipped, coverage %
-3. For failures: show exact error messages, not summaries
+## テストの実行 (Running Tests)
+1. 基準を確立するため、まずテストスイート全体を実行します。
+2. レポート: テスト総数、成功、失敗、スキップ、カバレッジ % を報告します。
+3. 失敗した場合: 要約ではなく、正確なエラーメッセージを表示します。
 
-## On Test Failure
-Load systematic-debugging skill — investigate root cause before fixing.
-Load verification-before-completion skill before declaring tests fixed.
+## テスト失敗時 (On Test Failure)
+`systematic-debugging` スキルをロードしてください — 修正する前に根本原因を調査します。
+テストが修正されたと宣言する前に、`verification-before-completion` スキルをロードしてください。
 
-## Coverage
+## カバレッジ (Coverage)
 
-80% is the minimum floor for shipping. It is not a target — high-risk code (auth, payments, data mutations) should be 95%+. Do not write coverage-padding tests.
+80% はリリースのための最低限の足切りラインです。これは目標ではありません — リスクの高いコード（認証、支払い、データの変更）は 95% 以上であるべきです。カバレッジを水増しするためだけのテストを書いてはいけません。
 
-- Report overall coverage %
-- Flag files below 80% coverage
-- Do NOT write tests purely to increase coverage numbers
+- 全体的なカバレッジ % を報告します
+- カバレッジが 80% 未満のファイルをフラグ付けします
+- カバレッジの数値を上げるためだけにテストを書いては**いけません**
 
-## Mass Failure Guidance
+## 大規模な失敗時のガイダンス (Mass Failure Guidance)
 
-If >20 tests fail simultaneously (e.g., major dependency upgrade): do NOT fix test-by-test. First, understand the failure pattern — are they all failing for the same root cause? Fix the root cause, then re-run. Load systematic-debugging skill.
+20件以上のテストが同時に失敗した場合（例: 主要な依存関係のアップグレード時など）: テストを1つずつ修正しては**いけません**。まず、失敗のパターンを理解してください — それらはすべて同じ根本原因で失敗していますか？ 根本原因を修正してから、再実行してください。`systematic-debugging` スキルをロードしてください。
 
-## Before Declaring Done
-Load verification-before-completion skill.
-Actually run the tests. Do not claim they pass without running them.
+## 完了を宣言する前に (Before Declaring Done)
+`verification-before-completion` スキルをロードしてください。
+実際にテストを実行してください。テストを実行せずにパスしたと主張しないでください。
 
-## Example Test Report
+## テストレポート例 (Example Test Report)
 
 ```
-Test run: 2026-02-25 18:30 UTC
-Command: pytest tests/ -v --cov=src --cov-report=term
+テスト実行: 2026-02-25 18:30 UTC
+コマンド: pytest tests/ -v --cov=src --cov-report=term
 
-Results: 47 passed | 0 failed | 2 skipped
-Coverage: 84.3% overall
+結果: 47 成功 | 0 失敗 | 2 スキップ
+カバレッジ: 全体 84.3%
   src/auth.py: 97.2% ✓
   src/user.py: 81.4% ✓
-  src/notifications.py: 61.0% ⚠ BELOW THRESHOLD
+  src/notifications.py: 61.0% ⚠ しきい値未満
 
-Action required: notifications.py below 80% — add tests before shipping
+必要なアクション: notifications.py が 80% 未満です — リリース前にテストを追加してください
 ```

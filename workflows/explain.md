@@ -2,28 +2,28 @@
 name: explain
 description: name: explain
 ---
-# Explain
+# Explain (説明)
 
-Clear explanations of code, concepts, and system behavior.
+コード、概念、およびシステムの挙動を明確に説明します。
 
-## Explanation Levels
-- **Basic**: Core concept only, plain language, minimal jargon
-- **Intermediate**: Mechanics and patterns, some technical depth
-- **Advanced**: Implementation details, trade-offs, edge cases
+## 説明のレベル (Explanation Levels)
+- **基本 (Basic)**: 核となる概念のみ、平易な言葉、専門用語を最小限に抑える
+- **中級 (Intermediate)**: 仕組みとパターン、ある程度の技術的な深さ
+- **上級 (Advanced)**: 実装の詳細、トレードオフ、エッジケース
 
-Specify your level or I'll calibrate based on context.
+レベルを指定するか、コンテキストに基づいてこちらで調整します。
 
-## What I Can Explain
-- **Code**: What it does, why it's written this way, how to use it
-- **Concepts**: Technical ideas, patterns, algorithms
-- **Systems**: How components interact, data flow, architecture
-- **Errors**: What went wrong, why, and how to fix it
+## 説明できる内容 (What I Can Explain)
+- **コード (Code)**: 何をしているのか、なぜこのように書かれているのか、どのように使うのか
+- **概念 (Concepts)**: 技術的なアイデア、パターン、アルゴリズム
+- **システム (Systems)**: コンポーネントがどのように相互作用するのか、データフロー、アーキテクチャ
+- **エラー (Errors)**: 何が間違っていたのか、その理由、そして修正方法
 
-## Format
-- Start with the core idea in one sentence
-- Build up with examples
-- Connect to things you already know
-- End with when to use it and when not to
+## フォーマット (Format)
+- 核となるアイデアを1文で始めること
+- 例を挙げて構築すること
+- すでに知っている事柄と結びつけること
+- いつ使うべきか、いつ使うべきでないかで締めくくること
 
-## Usage
-`/explain [what to explain] [--level basic|intermediate|advanced]`
+## 使用方法 (Usage)
+`/explain [説明してほしいこと] [--level basic|intermediate|advanced]`

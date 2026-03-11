@@ -2,15 +2,15 @@
 name: plan
 description: name: plan
 ---
-# Plan
+# Plan (計画)
 
-Load and follow the writing-plans skill exactly.
+`writing-plans` スキルをロードし、完全にそれに従います。
 
-Write a comprehensive implementation plan with bite-sized tasks (2-5 minutes each).
-Every task must include exact file paths, complete code, exact commands with expected output.
+小さく分割されたタスク（それぞれ2〜5分）で構成される包括的な実装計画を作成します。
+すべてのタスクには、正確なファイルパス、完全なコード、期待される出力を含む正確なコマンドが含まれていなければなりません。
 
-Save the plan to docs/plans/YYYY-MM-DD-<feature-name>.md. **REQUIRED:** Use **Planning Mode** while writing the plan.
+計画を `docs/plans/YYYY-MM-DD-<機能名>.md` に保存します。**必須:** 計画の作成中は **計画モード (Planning Mode)** を使用してください。
 
-After saving, offer two execution options:
-1. Subagent-Driven (this session) — fresh subagent per task with review. **RECOMMENDED:** Switch to **Fast Mode**.
-2. Parallel Session (separate) — open new session with executing-plans skill
+保存後、2つの実行オプションを提案します:
+1. サブエージェント主導 (このセッション) — タスクごとに新しいサブエージェントを使用し、レビューを行う。**推奨:** **高速モード (Fast Mode)** に切り替える。
+2. 並列セッション (別セッション) — `executing-plans` スキルを使って新しいセッションを開く。

@@ -1,42 +1,42 @@
 ---
 name: brainstorm
-description: Requirements discovery before any code — turns vague ideas into approved designs.
+description: コードを書く前の要件定義とディスカッションを行います。曖昧なアイデアを承認された設計に変えます。
 ---
-# /brainstorm
+# /brainstorm (ブレインストーミング)
 
-**What this does:** Requirements discovery before any code — turns vague ideas into approved designs.
+**このコマンドの機能:** コードを書く前の要件定義とディスカッションを行います。曖昧なアイデアを承認された設計に変えます。
 
-**When to use:** Before starting any new feature, component, or significant change.
-When NOT to use: If design is already approved and documented — use /plan instead.
-- **Planning Mode** active in Antigravity settings
+**使用するタイミング:** 新しい機能、コンポーネント、または重要な変更を開始する前に使用します。
+**使用すべきではないタイミング:** 設計がすでに承認され文書化されている場合 — 代わりに `/plan` を使用してください。
+- Antigravity の設定で **計画モード (Planning Mode)** がアクティブになっていること。
 
-## Orchestration
+## オーケストレーション (Orchestration)
 
-This workflow invokes the brainstorming skill and adds session coordination:
+このワークフローは `brainstorming` スキルを呼び出し、セッションの調整を追加します:
 
-1. **Announce** to the user: "Starting /brainstorm. I will not write any code until you approve the design."
-2. **Load brainstorming skill** — follow it completely
-3. **Gate check** before any code: confirm the design doc exists at docs/plans/YYYY-MM-DD-topic-design.md
-4. **Transition** to /plan when user approves
+1. ユーザーへの**宣言**: 「`/brainstorm` を開始します。あなたが設計を承認するまで、いかなるコードも記述しません。」
+2. **`brainstorming` スキルをロード**し、完全にそれに従います。
+3. コードを書く前の**ゲートチェック**: `docs/plans/YYYY-MM-DD-topic-design.md` に設計ドキュメントが存在することを確認します。
+4. ユーザーが承認したら、`/plan` への**移行**を行います。
 
-## Session State
+## セッション状態 (Session State)
 
-At the start of each brainstorming session, output:
+各ブレインストーミングセッションの開始時に、以下を出力します:
 ```
-Session: /brainstorm
-Stage: [question N of ~5 | proposing approaches | presenting design | approved]
-Design doc: [not started | in progress | saved at path]
+セッション: /brainstorm
+ステージ: [質問 N / 約5 | アプローチの提案 | 設計の提示 | 承認済み]
+設計ドキュメント: [未開始 | 進行中 | パスに保存済み]
 ```
 
-## Hard Gate
+## ハードゲート (Hard Gate)
 
-STOP if user says "just build it" or "skip the design" — respond:
-"SuperAntigravity requires design approval before implementation. This prevents wasted effort.
-The design will take 10-15 minutes and saves hours of rework. Shall we continue?"
+ユーザーが「とりあえず作って」「設計はスキップして」と言った場合は**停止**し、次のように返答してください:
+「SuperAntigravity では、実装前に設計の承認が必要です。これは無駄な作業を防ぐためです。
+設計には10〜15分かかりますが、後戻りの時間を数時間節約できます。続けますか？」
 
-## Completion Criteria
+## 完了基準 (Completion Criteria)
 
-Session complete when:
-- [ ] Design doc saved to docs/plans/
-- [ ] User has explicitly approved (not just acknowledged)
-- [ ] Next step communicated to user (/plan to create implementation plan)
+以下の条件を満たしたときにセッションが完了します:
+- [ ] 設計ドキュメントが `docs/plans/` に保存されている
+- [ ] ユーザーが（単なる確認ではなく）明確に承認している
+- [ ] 次のステップ（実装計画を作成するための `/plan`）がユーザーに伝えられている

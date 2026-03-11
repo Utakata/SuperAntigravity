@@ -2,36 +2,36 @@
 name: estimate
 description: name: estimate
 ---
-# Estimate
+# Estimate (見積もり)
 
-Development estimates for tasks, features, or projects.
+タスク、機能、またはプロジェクトの開発工数を見積もります。
 
-## Estimation Process
-1. Break the work into discrete components
-2. For each component, estimate: design + implementation + testing + integration
-3. Apply complexity multipliers for unknowns and dependencies
-4. State confidence level and key assumptions
+## 見積もりプロセス (Estimation Process)
+1. 作業を個別のコンポーネントに分割します
+2. 各コンポーネントについて: 設計 + 実装 + テスト + 統合 の工数を見積もります
+3. 未知の要素や依存関係に対する複雑さの乗数を適用します
+4. 確信度 (confidence level) と主要な前提条件を明記します
 
-## Complexity Factors
-- **Simple** (hours): Well-understood, existing patterns, clear scope
-- **Medium** (days): Some unknowns, new patterns, multiple components
-- **Complex** (weeks): Significant unknowns, architectural decisions, cross-cutting concerns
+## 複雑さの要因 (Complexity Factors)
+- **シンプル (時間単位)**: よく理解されている、既存のパターン、明確なスコープ
+- **中程度 (日数単位)**: いくつかの未知数、新しいパターン、複数のコンポーネント
+- **複雑 (週単位)**: 重要な未知数、アーキテクチャの決定、横断的関心事
 
-## Output Format
-For each component:
-- **Component name**
-- **Estimate**: X hours/days
-- **Confidence**: high / medium / low
-- **Key assumptions**: what must be true for this estimate to hold
-- **Risks**: what could make this take longer
+## 出力フォーマット (Output Format)
+各コンポーネントについて:
+- **コンポーネント名**
+- **見積もり**: X時間/日
+- **確信度**: 高 / 中 / 低
+- **主要な前提条件**: この見積もりが成立するために必要な条件
+- **リスク**: 作業が長引く可能性のある要因
 
-**Total**: Sum + buffer for integration and unexpected issues
+**合計**: コンポーネントの合計 + 統合と予期せぬ問題のためのバッファ
 
-## Buffer Guidelines
-- High confidence: 20% buffer
-- Medium confidence: 50% buffer
-- Low confidence: 100% buffer (or break down further before estimating)
+## バッファのガイドライン (Buffer Guidelines)
+- 確信度 高: 20% のバッファ
+- 確信度 中: 50% のバッファ
+- 確信度 低: 100% のバッファ (または見積もる前により細かく分割する)
 
-## What Estimates Are NOT
-Estimates are not commitments. They're informed guesses.
-State your confidence. State your assumptions. Update when you learn more.
+## 見積もりではないもの (What Estimates Are NOT)
+見積もりはコミットメント（確約）ではありません。十分な情報に基づいた推測です。
+確信度を明記してください。前提条件を明記してください。より多くの情報が得られたら更新してください。
