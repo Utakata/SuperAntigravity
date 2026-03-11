@@ -33,38 +33,38 @@ LIFTOFF_AGENTS=(
   security-engineer deep-research system-architect
 )
 
-echo "This will remove SuperAntigravity skills, workflows, agents, and the GEMINI.md block."
-read -p "Continue? [y/N] " -n 1 -r; echo ""
-[[ $REPLY =~ ^[Yy]$ ]] || { echo "Aborted."; exit 0; }
+echo "SuperAntigravity のスキル、ワークフロー、エージェント、および GEMINI.md のブロックを削除します。"
+read -p "続行しますか？ [y/N] " -n 1 -r; echo ""
+[[ $REPLY =~ ^[Yy]$ ]] || { echo "中止しました。"; exit 0; }
 
-log "Removing skills..."
+log "スキルを削除しています..."
 for skill in "${LIFTOFF_SKILLS[@]}"; do
   [ -d "$SKILLS_DIR/$skill" ] && rm -rf "$SKILLS_DIR/$skill" && echo "  ✓ $skill"
 done
 
-log "Removing workflows..."
+log "ワークフローを削除しています..."
 for wf in "${LIFTOFF_WORKFLOWS[@]}"; do
   [ -f "$WORKFLOWS_DIR/$wf.md" ] && rm "$WORKFLOWS_DIR/$wf.md" && echo "  ✓ $wf"
 done
 
-log "Removing agents..."
+log "エージェントを削除しています..."
 for agent in "${LIFTOFF_AGENTS[@]}"; do
   [ -f "$AGENTS_DIR/$agent.md" ] && rm "$AGENTS_DIR/$agent.md" && echo "  ✓ $agent"
 done
 
 if [ -f "$GEMINI_FILE" ] && grep -q "$LIFTOFF_MARKER" "$GEMINI_FILE"; then
-  log "Removing SuperAntigravity block from GEMINI.md..."
+  log "GEMINI.md から SuperAntigravity のブロックを削除しています..."
   python3 -c "
 import re, sys
 content = open('$GEMINI_FILE').read()
 # Remove the superantigravity block (from marker to end or next major section)
 cleaned = re.sub(r'\n*# SuperAntigravity Skills.*', '', content, flags=re.DOTALL).rstrip()
 open('$GEMINI_FILE', 'w').write(cleaned + '\n' if cleaned else '')
-print('  ✓ removed')
+print('  ✓ 削除されました')
 "
 else
-  warn "No SuperAntigravity block found in GEMINI.md"
+  warn "GEMINI.md に SuperAntigravity のブロックが見つかりませんでした"
 fi
 
 echo ""
-echo -e "${GREEN}✓ SuperAntigravity uninstalled.${NC}"
+echo -e "${GREEN}✓ SuperAntigravity がアンインストールされました。${NC}"

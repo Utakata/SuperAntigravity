@@ -1,76 +1,74 @@
 # SuperAntigravity Skills
 
-You have superantigravity installed — a complete workflow and specialist skills framework.
+SuperAntigravity がインストールされています — これは完全なワークフローおよびスペシャリストスキルフレームワークです。
 
-## MANDATORY: Check Skills Before Acting
+## 必須: 行動する前にスキルを確認すること (MANDATORY: Check Skills Before Acting)
 
-Before taking ANY action — including asking clarifying questions, exploring files,
-writing code, or debugging — you MUST check whether a skill applies.
+質問による確認、ファイルの探索、コードの記述、デバッグなど、**いかなる行動**をとる前にも、該当するスキルがあるかどうかを**必ず確認しなければなりません**。
 
-Even a 1% chance a skill might apply = you MUST check it.
+スキルが適用される可能性が1%でもあれば、必ず確認してください。
 
-This is not optional. This is not negotiable.
+これはオプションではありません。交渉の余地はありません。
 
-## How Skills Work in Antigravity
+## Antigravity におけるスキルの仕組み (How Skills Work in Antigravity)
 
-Skills are loaded automatically when your task matches the skill's description.
-The agent reads skill descriptions for all installed skills and loads the full
-content of matching ones before acting.
+タスクがスキルの説明と一致した場合、スキルは自動的にロードされます。
+エージェントはインストールされているすべてのスキルの説明を読み込み、行動する前に、一致するスキルの全内容をロードします。
 
-Skills live in: ~/.gemini/antigravity/skills/
+スキルは `~/.gemini/antigravity/skills/` に配置されています。
 
-## Skill Priority
+## スキルの優先順位 (Skill Priority)
 
-1. **Process skills first** (brainstorming, systematic-debugging) — determine HOW to approach
-2. **Implementation skills second** (architecture-design, deep-research) — guide execution
+1. **まずプロセススキルを優先** (`brainstorming`, `systematic-debugging`) — アプローチの「方法」を決定します
+2. **次に実装スキル** (`architecture-design`, `deep-research`) — 実行をガイドします
 
-"Let's build X" → brainstorming first.
-"Fix this bug" → systematic-debugging first.
+「X を作ろう」→ まずは `brainstorming`。
+「このバグを修正して」→ まずは `systematic-debugging`。
 
-## Red Flags — You Are Rationalizing
+## 危険信号 — あなたは正当化しようとしています (Red Flags — You Are Rationalizing)
 
-| Thought | Reality |
+| 考え (Thought) | 現実 (Reality) |
 |---------|---------|
-| "This is just a simple question" | Questions are tasks. Check for skills. |
-| "I need more context first" | Skill check comes BEFORE clarifying questions. |
-| "Let me explore the codebase first" | Skills tell you HOW to explore. Check first. |
-| "This doesn't need a formal skill" | If a skill exists, use it. |
-| "I remember this skill" | Skills evolve. Let Antigravity load the current version. |
-| "This doesn't count as a task" | Action = task. Check for skills. |
-| "The skill is overkill" | Simple things become complex. Use it. |
-| "I'll just do this one thing first" | Check BEFORE doing anything. |
+| 「これは単なる簡単な質問だ」 | 質問もタスクです。スキルを確認してください。 |
+| 「まずもっとコンテキストが必要だ」 | 質問による確認よりも**前に**スキルの確認を行います。 |
+| 「まずはコードベースを探索させて」 | スキルが探索の「方法」を教えてくれます。まず確認してください。 |
+| 「これには正式なスキルは必要ない」 | スキルが存在するなら、それを使用してください。 |
+| 「このスキルは覚えている」 | スキルは進化します。Antigravity に最新バージョンをロードさせてください。 |
+| 「これはタスクにはカウントされない」 | 行動＝タスクです。スキルを確認してください。 |
+| 「そのスキルを使うのは大げさだ」 | 単純なものは複雑になります。使用してください。 |
+| 「まずはこれだけやってみよう」 | 何かを行う**前に**確認してください。 |
 
-## Available Slash Commands
+## 利用可能なスラッシュコマンド (Available Slash Commands)
 
-Type `/` followed by any of these names to trigger explicit workflows:
+`/` の後に以下のいずれかの名前を入力すると、明示的なワークフローがトリガーされます:
 
-| Command | Purpose |
+| コマンド | 目的 |
 |---------|---------|
-| /brainstorm | Design before code — requirements discovery |
-| /plan | Write implementation plan |
-| /implement | Feature implementation |
-| /research | Deep research with parallel search |
-| /build | Build, compile, package |
-| /test | Run tests with coverage |
-| /git | Git operations with smart commits |
-| /analyze | Code quality, security, performance analysis |
-| /design | Architecture and API design |
-| /troubleshoot | Debug issues systematically |
-| /explain | Explain code or concepts |
-| /improve | Apply improvements to code |
-| /review | Code review |
-| /cleanup | Remove dead code, optimize structure |
-| /document | Generate documentation |
-| /estimate | Development estimates |
+| `/brainstorm` | コードの前に設計する — 要件の定義 |
+| `/plan` | 実装計画の作成 |
+| `/implement` | 機能の実装 |
+| `/research` | 並行検索による詳細なリサーチ |
+| `/build` | ビルド、コンパイル、パッケージング |
+| `/test` | カバレッジを伴うテストの実行 |
+| `/git` | スマートコミットによる Git 操作 |
+| `/analyze` | コード品質、セキュリティ、パフォーマンスの分析 |
+| `/design` | アーキテクチャと API の設計 |
+| `/troubleshoot` | 体系的なバグのデバッグ |
+| `/explain` | コードや概念の説明 |
+| `/improve` | コードへの改善の適用 |
+| `/review` | コードレビュー |
+| `/cleanup` | デッドコードの削除、構造の最適化 |
+| `/document` | ドキュメントの生成 |
+| `/estimate` | 開発工数の見積もり |
 
-## Specialist Skills
+## スペシャリストスキル (Specialist Skills)
 
-| Skill | When to use |
+| スキル | 使用するタイミング |
 |-------|-------------|
-| `deep-research` | Task needs external information before proceeding |
-| `performance-optimization` | Code needs profiling and optimization |
-| `security-review` | Code touches auth, input handling, or sensitive data |
-| `architecture-design` | Designing systems, APIs, or significant features |
-| `confidence-check` | About to implement — verifies readiness |
-| `browser-agent` | Interacting with web browser, testing UI flows, verifying web app behavior |
-| `dependency-management` | Adding, updating, auditing, or evaluating project dependencies |
+| `deep-research` | 作業を進める前に外部情報の調査が必要なとき |
+| `performance-optimization` | コードのプロファイリングと最適化が必要なとき |
+| `security-review` | 認証、入力処理、または機密データに触れるコードのとき |
+| `architecture-design` | システム、API、または重要な機能の設計時 |
+| `confidence-check` | 実装直前 — 準備が整っているか確認するとき |
+| `browser-agent` | Webブラウザの操作、UIフローのテスト、Webアプリの挙動確認時 |
+| `dependency-management` | プロジェクトの依存関係の追加、更新、監査、または評価時 |

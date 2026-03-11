@@ -2,42 +2,42 @@
 name: design
 description: name: design
 ---
-# Design
+# Design (設計)
 
-System architecture, API, and component design.
+システムアーキテクチャ、API、およびコンポーネントの設計を行います。
 
-Load architecture-design skill for the full process.
+完全なプロセスについては `architecture-design` スキルをロードしてください。
 
-## Design Types
+## 設計の種類 (Design Types)
 
-### System Architecture
-- Component relationships and boundaries
-- Data flow and state management
-- Scalability and reliability considerations
-- Technology choices with trade-offs
+### システムアーキテクチャ (System Architecture)
+- コンポーネント間の関係と境界
+- データフローと状態管理 (State management)
+- スケーラビリティと信頼性の考慮事項
+- トレードオフを伴う技術選択
 
-### API Design
-- Endpoint structure (REST) or schema (GraphQL)
-- Request/response formats
-- Authentication and authorization
-- Error handling and status codes
-- Versioning strategy
+### API設計 (API Design)
+- エンドポイント構造 (REST) またはスキーマ (GraphQL)
+- リクエスト / レスポンス形式
+- 認証と認可 (Authentication and authorization)
+- エラーハンドリングとステータスコード
+- バージョニング戦略
 
-### Component Design
-- Interface contracts
-- Dependencies and coupling
-- State management
-- Testing approach
+### コンポーネント設計 (Component Design)
+- インターフェースの契約 (Interface contracts)
+- 依存関係と結合度 (Coupling)
+- 状態管理
+- テストのアプローチ
 
-### Database Design
-- Entity relationships
-- Schema with types and constraints
-- Index strategy
-- Migration approach
+### データベース設計 (Database Design)
+- エンティティの関係性
+- 型と制約を持つスキーマ
+- インデックス戦略
+- マイグレーションのアプローチ
 
-## Output
-1. **Constraints** — what must be true
-2. **Options** — 2-3 approaches with trade-offs
-3. **Recommendation** — clear choice with reasoning
-4. **Decision record** — what was decided and why
-5. **Open questions** — what needs resolution
+## 出力 (Output)
+1. **制約 (Constraints)** — 満たすべき条件
+2. **オプション (Options)** — トレードオフを伴う2〜3のアプローチ
+3. **推奨事項 (Recommendation)** — 理由を伴う明確な選択
+4. **決定記録 (Decision record)** — 何が決定され、その理由は何か
+5. **未解決の質問 (Open questions)** — 解決が必要な事項

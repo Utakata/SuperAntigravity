@@ -2,33 +2,33 @@
 name: improve
 description: name: improve
 ---
-# Improve
+# Improve (改善)
 
-Apply systematic improvements to code quality, performance, and maintainability.
+コードの品質、パフォーマンス、保守性に体系的な改善を適用します。
 
-## Improvement Categories
+## 改善のカテゴリー (Improvement Categories)
 
-### Code Quality
-- Extract duplicated logic into reusable functions
-- Simplify complex conditionals
-- Improve naming for clarity
-- Reduce function/method length
+### コードの品質 (Code Quality)
+- 重複するロジックを再利用可能な関数に抽出する
+- 複雑な条件分岐をシンプルにする
+- 明確さを向上させるための命名の改善
+- 関数やメソッドの長さを短縮する
 
-### Performance
-Load performance-optimization skill — measure before improving.
+### パフォーマンス (Performance)
+`performance-optimization` スキルをロードしてください — 改善する前に測定を行ってください。
 
-### Security
-Load security-review skill — check for vulnerabilities.
+### セキュリティ (Security)
+`security-review` スキルをロードしてください — 脆弱性がないか確認してください。
 
-### Maintainability
-- Add missing error handling at system boundaries
-- Improve test coverage for critical paths
-- Simplify over-engineered abstractions
-- Document non-obvious decisions
+### 保守性 (Maintainability)
+- システムの境界部分で不足しているエラーハンドリングを追加する
+- 重要な経路 (critical paths) のテストカバレッジを向上させる
+- 過剰に設計された抽象化 (over-engineered abstractions) を簡素化する
+- 明白でない決定事項を文書化する
 
-## Rules
-- Measure before improving performance
-- Test before and after any refactoring
-- One improvement at a time — commit between each
-- YAGNI — don't add abstractions for hypothetical future needs
-- Load verification-before-completion before declaring improved
+## ルール (Rules)
+- パフォーマンスを改善する前に**測定**すること
+- いかなるリファクタリングの前と後にも**テスト**すること
+- 改善は一度に1つずつ — それぞれの間にコミットすること
+- **YAGNI** (You Aren't Gonna Need It) — 将来の架空のニーズのための抽象化は追加しないこと
+- 改善が完了したと宣言する前に、`verification-before-completion` スキルをロードすること

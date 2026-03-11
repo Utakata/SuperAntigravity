@@ -1,86 +1,86 @@
 ---
 name: research
-description: Multi-source research before acting on unknowns. Produces sourced findings with confidence levels ready for downstream use.
+description: 未知の事項に対して行動を起こす前に、複数の情報源を用いたリサーチを行います。
 ---
-# /research
+# /research (リサーチ)
 
-**What this does:** Multi-source research before acting on unknowns. Produces sourced findings with confidence levels ready for downstream use.
+**このコマンドの機能:** 未知の事項に対して行動を起こす前に、複数の情報源を用いたリサーチを行います。下流工程で利用できるよう、確信度を伴うソース付きの発見事項を生成します。
 
-**When to use:** Before implementing with unfamiliar tech, validating an approach, comparing options, or answering questions that need current information.
-**When NOT to use:** If the answer is in the existing codebase — read the code first.
+**使用するタイミング:** 不慣れな技術を実装する前、アプローチの妥当性を確認する前、選択肢を比較する前、または最新の情報が必要な質問に答える前。
+**使用すべきではないタイミング:** 答えが既存のコードベースにある場合 — まずコードを読んでください。
 
-## Session Announcement
+## セッションの宣言 (Session Announcement)
 
-At start, output:
+開始時に以下を出力します:
 ```
-Session: /research
-Questions to answer:
-  1. [question]
-  2. [question]
-Loading deep-research skill...
-```
-
-## Orchestration
-
-This workflow invokes the deep-research skill and adds session coordination:
-
-1. **List questions explicitly** before searching — state what decisions depend on the answers
-2. **Load deep-research skill** — follow its full 5-step process
-3. **Apply quality gate** — deep-research checklist must score 4/5 before acting on findings
-4. **State decision alignment** — before handing off: "Decision: [what I'm about to decide]. Finding that supports it: [key finding + confidence]"
-5. **Hand off** to downstream workflow
-
-## Key Claim Definition
-
-A claim is key if it meets **any** of criteria (a), (b), or (c) as defined in the deep-research skill.
-Do not re-derive the criteria here — refer to the skill for the authoritative definition.
-
-## Completion Gate
-
-Before passing findings to any downstream skill or workflow:
-- [ ] deep-research quality checklist scored 4/5 or higher
-- [ ] Each key claim has 2+ corroborating sources
-- [ ] Decision + supporting finding stated explicitly (the Validation Step)
-- [ ] Confidence level declared for each finding
-
-If any item fails: gather more sources. Do not hand off low-confidence findings to /brainstorm, /plan, or /design.
-
-## Error Path
-
-If sources are inaccessible: follow the deep-research skill's Error Path exactly.
-Announce the failure reason and confidence level before presenting findings.
-Do not present training-data knowledge as researched knowledge.
-
-## Example Output
-
-```
-Session: /research
-Questions: Is Prisma ORM suitable for 50k DAU Node.js app?
-
-Research complete.
-
-Question: Is Prisma ORM suitable for a Node.js app with 50k daily active users?
-Finding: Yes, with connection pooling (PgBouncer) required for high concurrency.
-Confidence: High — 3 primary sources agree
-Sources:
-  - prisma.io/docs/guides/performance/connection-pool (official)
-  - prisma.io/blog/prisma-at-scale (official blog, 2024)
-  - github.com/prisma/prisma/issues/12345 (confirmed at scale by maintainer)
-Caveats: Benchmarks from 2024; Prisma 6.x characteristics may differ. Connection pool config is critical.
-
-Quality checklist: 5/5 ✓
-Decision: Use Prisma with PgBouncer for connection pooling.
-Key finding: Official docs confirm PgBouncer required at this scale.
-
-Handing off to: /plan (architecture confirmation)
+セッション: /research
+回答すべき質問:
+  1. [質問]
+  2. [質問]
+deep-research スキルをロードしています...
 ```
 
-## Handoff
+## オーケストレーション (Orchestration)
 
-Research output is consumed by:
-- **/brainstorm** — feasibility phase (load before proposing technical approaches)
-- **/plan** — architecture confirmation (load before writing implementation tasks)
-- **/design** — options evaluation (load before comparing approaches)
-- **User directly** — for questions the user asked explicitly
+このワークフローは `deep-research` スキルを呼び出し、セッションの調整を追加します:
 
-State which workflow receives these findings before ending the session.
+1. 検索する前に**質問を明示的にリストアップ**します — その答えにどのような決定が依存しているかを述べます。
+2. **`deep-research` スキルをロード**し、その5ステップのプロセスに完全に従います。
+3. **品質ゲートを適用**します — 発見事項に基づいて行動を起こす前に、deep-research のチェックリストで 4/5 以上のスコアを獲得する必要があります。
+4. **決定の整合性を明示**します — 次の工程に引き継ぐ前に: 「決定事項: [これから決定すること]。それを裏付ける発見: [主要な発見 + 確信度]」
+5. 下流のワークフローへ**引き継ぎ (Hand off)** ます。
+
+## 主要な主張の定義 (Key Claim Definition)
+
+主張が `deep-research` スキルで定義された基準 (a), (b), (c) の**いずれか**を満たす場合、それは主要な主張 (Key Claim) となります。
+ここで基準を再定義しないでください — 権威ある定義については該当スキルを参照してください。
+
+## 完了ゲート (Completion Gate)
+
+発見事項を下流のスキルやワークフローに渡す前に、以下を確認します:
+- [ ] deep-research の品質チェックリストで 4/5 以上のスコアを獲得している
+- [ ] 各主要な主張に対して、裏付けとなる情報源が2つ以上ある
+- [ ] 決定事項とそれを裏付ける発見事項が明示的に述べられている (検証ステップ)
+- [ ] 各発見事項に対して確信度が宣言されている
+
+いずれかの項目が失敗した場合: より多くの情報源を収集してください。確信度の低い発見事項を `/brainstorm`、`/plan`、または `/design` に渡してはいけません。
+
+## エラーパス (Error Path)
+
+情報源にアクセスできない場合: `deep-research` スキルのエラーパスに正確に従ってください。
+発見事項を提示する前に、失敗の理由と確信度を宣言してください。
+トレーニングデータの知識を、リサーチ済みの知識として提示してはいけません。
+
+## 出力例 (Example Output)
+
+```
+セッション: /research
+質問: Prisma ORM は、DAU 5万人規模の Node.js アプリケーションに適していますか？
+
+リサーチ完了。
+
+質問: Prisma ORM は、DAU 5万人規模の Node.js アプリケーションに適していますか？
+発見: はい。ただし、高い並行処理能力を得るためにはコネクションプーリング (PgBouncer) が必要です。
+確信度: 高 — 3つの一次情報源が一致しています
+情報源:
+  - prisma.io/docs/guides/performance/connection-pool (公式)
+  - prisma.io/blog/prisma-at-scale (公式ブログ, 2024年)
+  - github.com/prisma/prisma/issues/12345 (メンテナーにより大規模環境での動作が確認されている)
+注意点: ベンチマークは2024年のものです。Prisma 6.x の特性は異なる可能性があります。コネクションプールの設定が重要です。
+
+品質チェックリスト: 5/5 ✓
+決定事項: Prisma を使用し、コネクションプーリングに PgBouncer を利用する。
+主要な発見: 公式ドキュメントが、この規模では PgBouncer が必要であることを確認している。
+
+引き継ぎ先: /plan (アーキテクチャの確認)
+```
+
+## 引き継ぎ (Handoff)
+
+リサーチの出力は以下で消費されます:
+- **/brainstorm** — 実現可能性フェーズ (技術的なアプローチを提案する前にロード)
+- **/plan** — アーキテクチャの確認 (実装タスクを書く前にロード)
+- **/design** — オプションの評価 (アプローチを比較する前にロード)
+- **ユーザーへの直接回答** — ユーザーが明示的に尋ねた質問に対して
+
+セッションを終了する前に、どのワークフローがこれらの発見事項を受け取るのかを明記してください。

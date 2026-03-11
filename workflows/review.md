@@ -2,61 +2,61 @@
 name: review
 description: name: review
 ---
-# Review
+# Review (レビュー)
 
-Code review against plan, requirements, and quality standards.
+計画、要件、および品質基準に対するコードレビューを行います。
 
-Load code-reviewer agent for the full process.
+完全なプロセスについては `code-reviewer` エージェントをロードしてください。
 
-## Review Checklist
+## レビューのチェックリスト (Review Checklist)
 
-### Plan Compliance
-- [ ] Does the implementation match what was planned?
-- [ ] Are all acceptance criteria met?
-- [ ] Any scope creep (things added that weren't planned)?
+### 計画の遵守 (Plan Compliance)
+- [ ] 実装は計画された内容と一致しているか？
+- [ ] すべての受け入れ基準 (acceptance criteria) を満たしているか？
+- [ ] スコープの肥大化 (計画されていなかったものが追加されていないか) はないか？
 
-### Code Quality
-- [ ] Is the code readable without needing comments to explain it?
-- [ ] Are functions doing one thing?
-- [ ] Is error handling present at system boundaries?
-- [ ] Are there tests for the new behavior?
+### コードの品質 (Code Quality)
+- [ ] コードはコメントによる説明がなくても読みやすいか？
+- [ ] 関数は1つのことだけを行っているか？
+- [ ] システムの境界部分にエラーハンドリングが存在するか？
+- [ ] 新しい挙動に対するテストが存在するか？
 
-### Security
-- [ ] Any user input that isn't validated?
-- [ ] Any secrets or credentials in the code?
-- [ ] Any new endpoints missing authorization?
+### セキュリティ (Security)
+- [ ] 検証されていないユーザー入力はないか？
+- [ ] コード内にシークレットや認証情報はないか？
+- [ ] 認可 (authorization) が欠落している新しいエンドポイントはないか？
 
-### Performance
-- [ ] Any N+1 queries (loop containing a database call)?
-- [ ] Any synchronous blocking I/O in an async context?
-- [ ] Any unbounded data fetching (missing LIMIT on queries)?
-- [ ] Any unnecessary re-computation inside loops?
+### パフォーマンス (Performance)
+- [ ] N+1 クエリ (データベース呼び出しを含むループ) はないか？
+- [ ] 非同期コンテキスト内で同期的なブロッキング I/O はないか？
+- [ ] 制限のないデータ取得 (クエリに LIMIT がない) はないか？
+- [ ] ループ内での不必要な再計算はないか？
 
-## Issue Severity
-- **Critical**: Blocks shipping — security vulnerabilities, broken functionality
-- **High**: Should fix before shipping — significant quality issues
-- **Medium**: Fix soon — technical debt, missing tests
-- **Low**: Nice to have — style, minor improvements
+## 問題の重要度 (Issue Severity)
+- **致命的 (Critical)**: リリースをブロックする — セキュリティ脆弱性、機能の破損
+- **高 (High)**: リリース前に修正すべき — 重大な品質問題
+- **中 (Medium)**: 近いうちに修正すべき — 技術的負債、テストの欠落
+- **低 (Low)**: あれば良い (Nice to have) — スタイル、軽微な改善
 
-## Example Review Output
+## レビュー出力例 (Example Review Output)
 
 ```
-=== CODE REVIEW ===
-Task reviewed: [task N from plan]
-Reviewer: code-reviewer agent
+=== コードレビュー ===
+レビュー対象タスク: [計画からのタスク N]
+レビュアー: code-reviewer エージェント
 
-PLAN COMPLIANCE: PASS
-- All acceptance criteria met
-- No scope creep detected
+計画の遵守: パス
+- すべての受け入れ基準を満たしている
+- スコープの肥大化は検出されなかった
 
-CODE QUALITY: 2 issues
-- MEDIUM: auth.js:45 — function is 87 lines, extract token validation to separate function
-- LOW: Missing error message context in catch block at user.js:102
+コードの品質: 2つの問題点
+- 中: auth.js:45 — 関数が87行あります。トークン検証を別の関数に抽出してください。
+- 低: user.js:102 の catch ブロックでエラーメッセージのコンテキストが不足しています。
 
-SECURITY: PASS (no auth/input handling changes)
+セキュリティ: パス (認証/入力処理の変更なし)
 
-PERFORMANCE: PASS
+パフォーマンス: パス
 
-OVERALL: APPROVED WITH SUGGESTIONS
-Blocker count: 0 | Suggestions: 2
+総合評価: 提案付きで承認 (APPROVED WITH SUGGESTIONS)
+ブロッカー数: 0 | 提案数: 2
 ```

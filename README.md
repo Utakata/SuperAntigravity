@@ -1,152 +1,152 @@
 # SuperAntigravity
 
-**Superpowers + SuperClaude for Google Antigravity IDE.**
+**Google Antigravity IDE 向けの Superpowers + SuperClaude 機能拡張です。**
 
-One install command. Works automatically. Complete AI-assisted development workflow.
+インストールはコマンド1つで完了し、自動的に機能します。AIアシストによる完全な開発ワークフローを提供します。
 
-## Install
+## インストール
 
-```bash
+```shell
 curl -fsSL https://raw.githubusercontent.com/derHaken/SuperAntigravity/main/install.sh | bash
 ```
 
-Restart Antigravity. That's it.
+Antigravity を再起動してください。これだけで準備完了です。
 
-## What You Get
+## 提供される機能
 
-### 19 Auto-Triggered Skills
+### 19種類の自動トリガースキル
 
-Skills fire automatically when your task context matches — no commands needed.
+タスクのコンテキストが一致した際に、スキルが自動的に発動します。コマンド入力は不要です。
 
-**Workflow Pipeline** (from [Superpowers](https://github.com/obra/superpowers))
+**ワークフローパイプライン** ([Superpowers](https://github.com/obra/superpowers) より)
 
-| Skill | Fires when... |
+| スキル | 発動条件... |
 |-------|--------------|
-| `brainstorming` | You want to build something new |
-| `writing-plans` | You have an approved design ready to implement |
-| `executing-plans` | You have a written plan to execute |
-| `subagent-driven-development` | Executing plans with fresh subagents per task |
-| `test-driven-development` | Implementing any feature or bug fix |
-| `systematic-debugging` | A bug, test failure, or unexpected behavior |
-| `verification-before-completion` | About to claim something is done |
-| `requesting-code-review` | Between implementation tasks |
-| `receiving-code-review` | You receive code review feedback |
-| `finishing-a-development-branch` | Implementation is complete |
-| `dispatching-parallel-agents` | 2+ independent tasks to parallelize |
-| `writing-skills` | Creating or editing Antigravity skills |
+| `brainstorming` | 新しいものを構築したいとき |
+| `writing-plans` | 承認された設計があり、実装の準備ができているとき |
+| `executing-plans` | 実行すべき計画が書かれているとき |
+| `subagent-driven-development` | タスクごとに新しいサブエージェントを使って計画を実行するとき |
+| `test-driven-development` | 機能やバグ修正を実装するとき |
+| `systematic-debugging` | バグ、テストの失敗、または予期せぬ挙動が発生したとき |
+| `verification-before-completion` | 作業が完了したと宣言する直前 |
+| `requesting-code-review` | 実装タスクの合間 |
+| `receiving-code-review` | コードレビューのフィードバックを受け取ったとき |
+| `finishing-a-development-branch` | 実装が完了したとき |
+| `dispatching-parallel-agents` | 2つ以上の独立したタスクを並列化するとき |
+| `writing-skills` | Antigravity スキルを作成または編集するとき |
 
-**Specialist Skills** (from [SuperClaude](https://github.com/NomenAK/SuperClaude))
+**スペシャリストスキル** ([SuperClaude](https://github.com/NomenAK/SuperClaude) より)
 
-| Skill | Fires when... |
+| スキル | 発動条件... |
 |-------|--------------|
-| `deep-research` | Task needs external information before proceeding |
-| `performance-optimization` | Code needs profiling and optimization |
-| `security-review` | Code touches auth, input handling, or sensitive data |
-| `architecture-design` | Designing systems, APIs, or significant features |
-| `confidence-check` | About to implement — verifies readiness |
-| `browser-agent` | Testing UI flows, verifying web app behavior, browser automation |
+| `deep-research` | 作業を進める前に外部情報の調査が必要なとき |
+| `performance-optimization` | コードのプロファイリングと最適化が必要なとき |
+| `security-review` | 認証、入力処理、または機密データに触れるコードのとき |
+| `architecture-design` | システム、API、または重要な機能の設計時 |
+| `confidence-check` | 実装直前 — 準備が整っているか確認するとき |
+| `browser-agent` | UIフローのテスト、Webアプリの挙動確認、ブラウザ自動化時 |
 
-### 16 Slash Commands
+### 16種類のスラッシュコマンド
 
-Type `/` + command name in Antigravity:
+Antigravity 上で `/` + コマンド名 を入力します:
 
-| Command | What it does |
+| コマンド | 機能 |
 |---------|-------------|
-| `/brainstorm` | [Step 1] Requirements discovery before writing code |
-| `/plan` | [Step 2] Write a detailed implementation plan |
-| `/implement` | [Step 3] Feature implementation with TDD |
-| `/research` | Deep multi-source research |
-| `/build` | Build and package project |
-| `/test` | Run tests with coverage |
-| `/git` | [Step 5] Git operations with smart commits |
-| `/analyze` | Code quality, security, performance review |
-| `/design` | Architecture and API design |
-| `/troubleshoot` | Systematic debugging |
-| `/explain` | Explain code or concepts |
-| `/improve` | Apply code improvements |
-| `/review` | [Step 4] Code review |
-| `/cleanup` | Remove dead code |
-| `/document` | Generate documentation |
-| `/estimate` | Development estimates |
-| `/business-panel` | AI-facilitated panel discussion with business thought leaders |
-| `/spec-panel` | Multi-expert review of technical specification quality |
-| `/recommend` | Intelligent recommender for SuperAntigravity commands |
+| `/brainstorm` | [ステップ 1] コードを書く前の要件定義とディスカッション |
+| `/plan` | [ステップ 2] 詳細な実装計画の作成 |
+| `/implement` | [ステップ 3] TDD（テスト駆動開発）による機能実装 |
+| `/research` | 複数ソースを用いた詳細なリサーチ |
+| `/build` | プロジェクトのビルドとパッケージング |
+| `/test` | カバレッジを含むテストの実行 |
+| `/git` | [ステップ 5] スマートコミットを含むGit操作 |
+| `/analyze` | コード品質、セキュリティ、パフォーマンスのレビュー |
+| `/design` | アーキテクチャとAPIの設計 |
+| `/troubleshoot` | 体系的なデバッグ |
+| `/explain` | コードや概念の説明 |
+| `/improve` | コードの改善適用 |
+| `/review` | [ステップ 4] コードレビュー |
+| `/cleanup` | デッドコード（不要なコード）の削除 |
+| `/document` | ドキュメントの生成 |
+| `/estimate` | 開発工数の見積もり |
+| `/business-panel` | ビジネスの専門家によるAIパネルディスカッション |
+| `/spec-panel` | 技術仕様の品質に関する複数専門家によるレビュー |
+| `/recommend` | SuperAntigravity コマンドのインテリジェントな推奨 |
 
-> Each command is backed by a workflow file in `~/.gemini/antigravity/global_workflows/` — you can inspect and customize them.
+> 各コマンドは `~/.gemini/antigravity/global_workflows/` にあるワークフローファイルによって実行されます。内容を確認し、カスタマイズすることも可能です。
 
-### 6 Specialist Agents
+### 6種類の専門エージェント
 
-| Agent | Specializes in |
+| エージェント | 専門分野 |
 |-------|---------------|
-| `code-reviewer` | Reviews implementation against plan and quality standards |
-| `backend-architect` | Backend systems, APIs, databases, reliability |
-| `frontend-architect` | UI components, state management, performance |
-| `security-engineer` | Vulnerability review, auth design, threat modeling |
-| `deep-research` | Multi-source research with source quality ranking |
-| `system-architect` | Distributed systems, migrations, observability |
-| `socratic-mentor` | Educational guide for Socratic discovery learning |
-| `repo-index` | Repository context compression and indexing |
+| `code-reviewer` | 計画および品質基準に対する実装のレビュー |
+| `backend-architect` | バックエンドシステム、API、データベース、信頼性 |
+| `frontend-architect` | UIコンポーネント、状態管理、パフォーマンス |
+| `security-engineer` | 脆弱性レビュー、認証設計、脅威モデリング |
+| `deep-research` | 情報源の品質評価を伴う複数ソースリサーチ |
+| `system-architect` | 分散システム、マイグレーション、可観測性 |
+| `socratic-mentor` | ソクラテス式問答による発見的学習のガイド |
+| `repo-index` | リポジトリコンテキストの圧縮とインデックス化 |
 
-## How It Works
-
-```
-Install → GEMINI.md gets SuperAntigravity bootstrap block (always-on)
-        → skills/ → ~/.gemini/antigravity/skills/
-        → workflows/ → ~/.gemini/antigravity/global_workflows/
-        → agents/ → ~/.gemini/antigravity/agents/
-
-Session → Agent reads GEMINI.md → knows it has skills, must check them
-        → Skills trigger automatically by description matching
-        → /commands available explicitly via workflows
-```
-
-## ⚡ Conversation Modes
-
-SuperAntigravity is optimized for Antigravity's native mode toggles:
-
-- **Planning Mode**: Mandatory for `/brainstorm`, `/plan`, `/research`, and `/troubleshoot`. Use for deep thinking, design, and complex problem isolation.
-- **Fast Mode**: Recommended for `/implement`, `/test`, and batch execution. Optimized for direct code generation and mechanical tasks.
-
-## The Workflow
+## 仕組み
 
 ```
-/brainstorm  →  discuss + design (no code yet)
-     ↓
-/plan        →  bite-sized tasks with TDD steps
-     ↓
-/implement   →  subagent per task + code review between
-     ↓
-/review      →  validate against plan
-     ↓
-/git         →  smart commit and push
+インストール → GEMINI.md に SuperAntigravity のブートストラップブロックが追加されます（常時有効）
+          → skills/ は ~/.gemini/antigravity/skills/ に配置されます
+          → workflows/ は ~/.gemini/antigravity/global_workflows/ に配置されます
+          → agents/ は ~/.gemini/antigravity/agents/ に配置されます
+
+セッション → エージェントが GEMINI.md を読み込む → スキルの存在を認識し、確認するようになります
+         → スキルは説明文とのマッチングにより自動的にトリガーされます
+         → ワークフロー経由で /コマンド が明示的に利用可能になります
 ```
 
-## Philosophy
+## ⚡ 会話モード
 
-- **Design before code** — brainstorming is mandatory, not optional
-- **Test first** — TDD is the iron law, no exceptions
-- **Systematic over ad-hoc** — process beats guessing every time
-- **Evidence over claims** — run the verification before declaring done
-- **YAGNI** — build what's needed now, not hypothetical future needs
+SuperAntigravity は Antigravity ネイティブのモード切り替えに最適化されています:
 
-## Uninstall
+- **計画モード (Planning Mode)**: `/brainstorm`、`/plan`、`/research`、`/troubleshoot` では必須です。深く考える作業、設計、複雑な問題の切り分けに使用してください。
+- **高速モード (Fast Mode)**: `/implement`、`/test`、およびバッチ実行に推奨されます。直接的なコード生成や機械的なタスクに最適化されています。
 
-```bash
+## ワークフロー
+
+```
+/brainstorm  →  ディスカッション + 設計（まだコードは書きません）
+     ↓
+/plan        →  TDDステップを含む、小さく分割されたタスクの作成
+     ↓
+/implement   →  タスクごとにサブエージェントを起動 + 中間でコードレビュー
+     ↓
+/review      →  計画通りに実装されているか検証
+     ↓
+/git         →  スマートなコミットとプッシュ
+```
+
+## 哲学 (Philosophy)
+
+- **コードを書く前に設計する** — ブレインストーミングはオプションではなく必須です
+- **テストファースト** — TDDは絶対の法則であり、例外はありません
+- **アドホックではなく体系的に** — 当てずっぽうよりもプロセスが常に勝ります
+- **主張よりも証拠** — 完了を宣言する前に必ず検証を実行します
+- **YAGNI (You Aren't Gonna Need It)** — 架空の将来のニーズではなく、今必要なものを作ります
+
+## アンインストール
+
+```shell
 curl -fsSL https://raw.githubusercontent.com/derHaken/SuperAntigravity/main/uninstall.sh | bash
 ```
 
-## Credits
+## クレジット
 
-- Workflow pipeline adapted from [Superpowers](https://github.com/obra/superpowers) by Jesse Vincent (MIT)
-- Specialist commands adapted from [SuperClaude](https://github.com/NomenAK/SuperClaude) (MIT)
-- Built for [Google Antigravity](https://antigravity.google)
+- ワークフローパイプラインは Jesse Vincent による [Superpowers](https://github.com/obra/superpowers) (MIT) を適合させたものです
+- スペシャリストコマンドは [SuperClaude](https://github.com/NomenAK/SuperClaude) (MIT) を適合させたものです
+- [Google Antigravity](https://antigravity.google) 向けに構築されています
 
-## Contributing
+## 貢献 (Contributing)
 
-Skills live in `skills/`, workflows in `workflows/`, agents in `agents/`.
-Follow the `writing-skills` skill for creating new skills.
-PRs welcome.
+スキルは `skills/`、ワークフローは `workflows/`、エージェントは `agents/` に配置されています。
+新しいスキルを作成する際は、`writing-skills` スキルに従ってください。
+プルリクエスト (PR) を歓迎します。
 
-## License
+## ライセンス
 
 MIT
